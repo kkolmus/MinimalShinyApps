@@ -6,8 +6,6 @@ server <- function(input, output, session) {
     
     expr = { X }, 
     
-    server = FALSE,
-    
     selection = "single",
     
     options = list(
