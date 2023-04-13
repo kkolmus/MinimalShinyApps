@@ -67,41 +67,17 @@ ui <- fluidPage(
       width = 8,
       
       tabsetPanel(
+        
         id = "app_analysis",
-        type = "pills",
+        type = "tabs",
         
         tabPanel(
-          title = "Exploratory data analysis",
-          
-          # QC PLOT # 1
-          
-          div(
-            
-            id = "plot_1",
-            class = "panel",
-            style = "height: 500px;",
-            div(
-              class = "panel-header text-center",
-              h3("QC PLOT TITLE # 1")
-            ),
-            div(
-              column(
-                width = 1,
-                icon(
-                  name = "circle-info",
-                  class = "fa-2x",
-                  lib = "font-awesome"
-                )
-              ),
-              column(
-                width = 11,
-                p(
-                  class = "text-primary",
-                  "Placeholder for text exaplaining this plot")
-            )
-          )
-          )
-          )
+          title = "Exploratory data analysis", 
+          eda_ui(id = "eda") ),
+        
+        tabPanel(
+          title = "Pan-species analysis",
+          targeted_analysis_ui(id = "targeted_analysis") )
         
         )
     )

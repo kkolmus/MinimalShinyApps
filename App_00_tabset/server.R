@@ -1,5 +1,9 @@
 server <- function(input, output, session) {
   
+  RawDataForApp <- reactive({
+    ds
+  })
+  
   FeaturesForApp <- reactive({
     features
   })
@@ -27,17 +31,20 @@ server <- function(input, output, session) {
     input$feature_1
   })
   
-  Feature1 <- eventReactive(input$analyze, {
+  Feature2 <- eventReactive(input$analyze, {
     input$feature_2
   })
   
-  observe({print(Feature1())})
-  observe({print(Feature1())})
+  FeatureData <- eda_server(
+    id = "eda",
+    inFeature1 = Feature1,
+    inFeature2 = Feature2,
+    inRawData = RawDataForApp)
   
-  output$plot.nr.1 <- renderPlot(
-    {
-      draw_blank_plot_with_a_comment(inText = "QC Plot # 1")
-    }
-  )
+  targeted_analysis_server(
+    id = "targeted_analysis",
+    inFeature1 = Feature1,
+    inFeature2 = Feature2,
+    inSelectedData = FeatureData)
   
 }

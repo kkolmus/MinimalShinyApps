@@ -1,5 +1,6 @@
 draw_blank_plot_with_a_comment <- function(inText) {
-  ggplot(
+  
+  p <- ggplot(
     data = data.frame()) +
     geom_text(
       aes(x = 1, y = 1, label = inText),
@@ -16,4 +17,7 @@ draw_blank_plot_with_a_comment <- function(inText) {
       strip.background = element_blank(),
       panel.border = element_rect(colour = "black", fill = NA),
       strip.text = element_text(colour = "black", face = "bold", size = 14))
+  
+  print(p)
+  
 } 
