@@ -2,7 +2,7 @@ server <- function(input, output, session) {
 
   visualization <-
     iris %>%
-    dplyr::arrange(desc(Sepal.Width)) %>%
+    dplyr::arrange(desc(Petal.Length)) %>%
     tibble::rownames_to_column(var = "Order") %>%
     dplyr::mutate(
       Order = as.numeric(Order),
@@ -19,12 +19,14 @@ server <- function(input, output, session) {
         data = visualization,
         mapping = aes(
           x = Order, 
-          y = Sepal.Width,
+          y = Petal.Length,
           color = UX,
           fill = UX)) +
         geom_bar(
           stat = "identity") +
-        coord_cartesian(xlim = ranges_plot$x, expand = FALSE)
+        coord_cartesian(
+          xlim = ranges_plot$x, 
+          expand = FALSE)
       
     }
     
