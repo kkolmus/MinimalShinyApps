@@ -33,6 +33,8 @@ eda_server <- function(
     inFeature2,
     inRawData) {
   
+  # ANY EXTRA ANALYSIS OR DATA PREPARATION ----
+  
   FeaturesData <- reactive({
     
     req(inFeature1())
@@ -54,6 +56,8 @@ eda_server <- function(
     
   })
   
+  # DATA VISUALIZATION AND SUMMARY MODULES ----
+  
   module_data_table_server(
     id = "feature_1_summary_table",
     inData = FeaturesData,
@@ -65,6 +69,8 @@ eda_server <- function(
     inData = FeaturesData,
     inSlot = "Feature2Data",
     inDataTableFunction = print_DT)
+  
+  # OUTPUT CAN BE PASSED TO ANOTHER MODULE ----
   
   FeaturesData
   

@@ -27,6 +27,8 @@ targeted_analysis_server <- function(
     inFeature2,
     inSelectedData) {
   
+  # ANY EXTRA ANALYSIS OR DATA PREPARATION ----
+  
   SelectedData <- reactive({
     
     req(inSelectedData())
@@ -42,6 +44,8 @@ targeted_analysis_server <- function(
     
   })
  
+  # DATA VISUALIZATION AND SUMMARY MODULES ----
+  
   module_plot_server(
     id = "correlation_plot",
     inData = SelectedData,

@@ -31,6 +31,7 @@ ui <- fluidPage(
       
       wellPanel(
         
+        # SELECT INPUTS ----
         input_selector_ui(
           id = "feature_1_selector", 
           inIconName = "flower", 
@@ -70,6 +71,8 @@ ui <- fluidPage(
         
         id = "app_analysis",
         type = "tabs",
+        
+        # USE MODULES FOR EACH TAB ----
         
         tabPanel(
           title = "Exploratory data analysis", 

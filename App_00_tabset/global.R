@@ -17,14 +17,6 @@ ds <- iris %>%
     names_to = "Features",
     values_to = "Length")
 
-# Feature1 <- ds %>%
-#   dplyr::filter(Features == "Sepal.Length")
-# 
-# Feature2 <- ds %>%
-#   dplyr::filter(Features == "Sepal.Width")
-# 
-# Data <- full_join(Feature1, Feature2, by = c("Id", "Species"))
-
 features <- ds %>% dplyr::pull(Features) %>% unique()
 
 # 3. FUNCTIONS AND MODULES ----
