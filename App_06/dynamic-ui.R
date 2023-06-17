@@ -52,8 +52,8 @@ biomarkerServer <- function(input, output, session, bm_id) {
     
     Data <- data.frame(
       "bm_id" = bm_id,
-      "variable" = input$dataset,
-      "value" = input$identifier,
+      "dataset" = input$dataset,
+      "gene" = input$identifier,
       stringsAsFactors = FALSE)
     
     return(Data)
@@ -94,7 +94,7 @@ server <- function(input, output, session) {
     data.frame(
       "bm_id" = numeric(0),
       "dataset" = character(0),
-      "value" = character(0),
+      "gene" = character(0),
       stringsAsFactors = FALSE)
   
   var1 <- callModule(
